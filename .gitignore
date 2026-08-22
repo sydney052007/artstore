@@ -2,8 +2,9 @@ node_modules/
 dist/
 
 # secrets — real values live only in the environment / local untracked files
+# (production.server.config.json is tracked: it no longer holds secrets,
+# and the app reads it directly at runtime — see src/config/index.ts)
 *.env
-production.server.config.json
 
 # local runtime state
 *.db

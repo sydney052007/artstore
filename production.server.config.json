@@ -1,0 +1,69 @@
+{
+    "http": {
+        "port": 5000,
+        "content_security": {
+            "contentSecurityPolicy": {
+                "directives": {
+                    "upgradeInsecureRequests": null
+                }
+            }
+        }
+    },
+    "templates": {
+        "location": "templates",
+        "config": {
+            "layoutsDir": "templates",
+            "defaultLayout": "main_layout.handlebars",
+            "partialsDir": "templates"
+        }
+    },
+    "errors": {
+        "400": "not_found",
+        "500": "error"
+    },
+    "catalog": {
+        "orm_repo": {
+            "rest_db":false,
+            "settings": {
+                "dialect": "postgres",
+                "ssl": {
+                    "rejectUnauthorized": false
+                }
+            },
+            "seed_file": "products.json",
+            "logging": true
+        }
+    },
+    "sessions": {
+        "rest_db": false,
+        "maxAgeHrs": 2,
+        "orm": {
+            "settings": {
+                "dialect": "postgres",
+                "ssl": {
+                    "rejectUnauthorized": false
+                }
+            },
+            "logging": true
+        }
+    },
+    "auth": {
+        "openauth": {
+            "redirectionUrl": 
+                "https://rentorbuy.fly.dev/signin-google"
+        }
+    },
+    "admin": {
+        "openauth": {
+            "redirectionUrl": 
+                "https://rentorbuy.fly.dev/auth-signin-google"
+        },
+        "users" : ["sydney052007@gmail.com"]
+    },
+    "supplier": {
+        "openauth": {
+            "redirectionUrl":
+                "https://rentorbuy.fly.dev/supplier-signin-google"
+        }
+    }
+}
