@@ -1,4 +1,9 @@
 import { Sequelize } from "sequelize";
+// Sequelize loads its Postgres dialect via a dynamic require() based on the
+// `dialect` config string, which Vercel's function bundler can't trace
+// statically — without this explicit import, the pg package silently isn't
+// included in the deployed bundle ("Please install pg package manually").
+import "pg";
 import { getConfig } from "../../config";
 import { initializeModels, CategoryModel, 
     ProductModel} from "./models";

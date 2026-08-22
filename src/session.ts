@@ -1,5 +1,7 @@
 import { Express } from "express";
 import { Sequelize } from "sequelize";
+// see src/data/orm/core.ts for why this explicit import is needed
+import "pg";
 import { getConfig, getSecret } from "./config";
 import session from "express-session";
 import sessionStore from "connect-session-sequelize";
