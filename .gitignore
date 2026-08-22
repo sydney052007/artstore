@@ -1,5 +1,6 @@
 node_modules/
 dist/
+public/
 
 # secrets — real values live only in the environment / local untracked files
 # (production.server.config.json is tracked: it no longer holds secrets,

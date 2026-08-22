@@ -5,7 +5,7 @@ import { catalog_repository } from "../../data";
 import { supplier_repository } from "../../data";
 import { ProductDTOValidator, getData, isValid } from "../../data/validation";
 import { Sequelize } from "sequelize";
-import { setCategoryFolder,upload } from "./helper";
+import { setCategoryFolder,upload,storeUploadedPhoto } from "./helper";
 
 export const createSupplierCatalogRoutes = (router: Router) => {
     router.get("/table", async (req,resp) => {
@@ -142,7 +142,7 @@ export const createSupplierCatalogRoutes = (router: Router) => {
             let updateData = getData(validation);
 
             if (file) {
-                updateData.photo_URL = `/uploads/${file.filename}`;
+                updateData.photo_URL = await storeUploadedPhoto(req) as string;
             }
 
             await ProductModel.update(updateData, { where: { id } });

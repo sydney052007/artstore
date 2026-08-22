@@ -94,7 +94,7 @@ export const createUserRoutes = (app: Express) => {
         if(req.user){
             let avatar = req.user.avatar;
             if (req.file){
-                avatar = `/uploads/${req.file.filename}`;
+                avatar = req.file.path;
             }
             const updateData: Partial<Customer> = {};
             updateData.avatar = avatar;

@@ -13,8 +13,9 @@ const logging = config.orm.logging
 
 export const createSessions = (app: Express) => {
     const databaseUrl = process.env.DATABASE_URL;
+    const serverlessPool = { pool: { max: 3, min: 0, idle: 10000, acquire: 10000 } };
     const sequelize = databaseUrl
-        ? new Sequelize(databaseUrl, { ...config.orm.settings, ...logging })
+        ? new Sequelize(databaseUrl, { ...config.orm.settings, ...logging, ...serverlessPool })
         : new Sequelize({ ...config.orm.settings, ...logging });
 
     const store = new (sessionStore(session.Store))({

@@ -14,8 +14,12 @@ export class BaseRepo {
 
     constructor(){
         const databaseUrl = process.env.DATABASE_URL;
+        // Serverless functions can run many concurrent instances, each
+        // opening its own pool; keep it small so a burst of cold starts
+        // doesn't exhaust the database's connection limit.
+        const serverlessPool = { pool: { max: 3, min: 0, idle: 10000, acquire: 10000 } };
         this.sequelize = databaseUrl
-            ? new Sequelize(databaseUrl, { ...config.settings, ...logging })
+            ? new Sequelize(databaseUrl, { ...config.settings, ...logging, ...serverlessPool })
             : new Sequelize({ ...config.settings, ...logging });
         this.initModelsAndDatabase();
     }

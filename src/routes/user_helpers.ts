@@ -1,25 +1,12 @@
 import multer from 'multer';
 import path from "path";
-import fs from 'fs';
 import sharp from 'sharp';
+import { storeImageBuffer } from "../helpers/image_storage";
 
 export const uploadDir = path.resolve(__dirname, "../admin/pics/uploads");
 
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-}
-
-export const storage = multer.diskStorage({
-    destination: function(req,file,cb){
-        cb(null,uploadDir);
-    },
-    filename: function (req, file, cb){
-        cb(null, Date.now() + path.extname(file.originalname));
-    }
-})
-
 export const upload = multer({
-    storage: storage,
+    storage: multer.memoryStorage(),
     limits: { fileSize: 1 *1024 * 1024},
     fileFilter: function(req,file,cb){
         const fileTypes = /jpeg|jpg|png/i;
@@ -36,21 +23,15 @@ export const upload = multer({
 export const compressImage = async (req, res, next) => {
     if (!req.file) return next();
 
-    const inputPath = req.file.path;
-    const outputPath = path.join(uploadDir, `compressed_${req.file.filename}`);
-
     try {
-        await sharp(inputPath)
+        const compressed = await sharp(req.file.buffer)
             .resize(500) // 限制最大寬度
             .jpeg({ quality: 80 }) // 壓縮 JPEG 圖片
-            .toFile(outputPath);
+            .toBuffer();
 
-        // 刪除原始檔案
-        fs.unlinkSync(inputPath);
-
-        // 更新 req.file 路徑
-        req.file.path = outputPath;
-        req.file.filename = `compressed_${req.file.filename}`;
+        const filename = `compressed_${Date.now()}.jpg`;
+        req.file.path = await storeImageBuffer(compressed, filename, uploadDir);
+        req.file.filename = filename;
         next();
     } catch (error) {
         console.error("圖片壓縮失敗:", error);

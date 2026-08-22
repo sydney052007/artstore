@@ -36,11 +36,14 @@ expressApp.use(express.json({
 }));
 
 
-expressApp.use(express.static("node_modules/flatpickr"));
-expressApp.use(express.static("node_modules/bootstrap/dist"));
-expressApp.use(express.static("node_modules/bootstrap-icons"));
-expressApp.use(express.static("node_modules/htmx.org/dist"));
-expressApp.use(express.static("dist/admin"));
+// Vercel ignores express.static() and only serves files under public/**
+// directly via its CDN; webpack now builds bundle.js/style.css/pics and
+// copies the vendor CSS/JS (bootstrap, bootstrap-icons, flatpickr, htmx)
+// there too, so this one mount covers local dev and matches what Vercel
+// serves in production.
+expressApp.use(express.static("public"));
+// Local-dev-only fallback for uploads written to disk; in production these
+// are served directly from Vercel Blob's own URL, not through this route.
 expressApp.use("/uploads", express.static(uploadDir));
 
 createTemplates(expressApp);
@@ -87,3 +90,5 @@ if(getEnvironment() === Env.Development) {
 createErrorHandlers(expressApp);
 
 server.listen(port, () => console.log(`HTTP Server listening on port ${port}`));
+
+export default expressApp;

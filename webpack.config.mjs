@@ -10,7 +10,9 @@ export default {
     entry: "./src/admin/client.js",
     devtool: "source-map",
     output: {
-        path: path.resolve(__dirname, "dist/admin"),
+        // Vercel ignores express.static() entirely and only serves files
+        // placed under public/**, so build output has to land there.
+        path: path.resolve(__dirname, "public"),
         filename: "bundle.js"
     },
     devServer: {
@@ -36,7 +38,12 @@ export default {
         new MiniCssExtractPlugin({ filename: "style.css" }),
         new CopyWebpackPlugin({
             patterns: [
-                { from: "src/admin/pics", to: "pics" }
+                { from: "src/admin/pics", to: "pics" },
+                { from: "node_modules/bootstrap/dist/css/bootstrap.min.css", to: "css/bootstrap.min.css" },
+                { from: "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js", to: "js/bootstrap.bundle.min.js" },
+                { from: "node_modules/bootstrap-icons/font", to: "font" },
+                { from: "node_modules/flatpickr/dist/flatpickr.min.css", to: "dist/flatpickr.min.css" },
+                { from: "node_modules/htmx.org/dist/htmx.min.js", to: "htmx.min.js" }
             ]
         })
     ]
