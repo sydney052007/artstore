@@ -50,20 +50,20 @@
     "auth": {
         "openauth": {
             "redirectionUrl": 
-                "https://rentorbuy.fly.dev/signin-google"
+                "https://artstore-iyld.vercel.app/signin-google"
         }
     },
     "admin": {
         "openauth": {
             "redirectionUrl": 
-                "https://rentorbuy.fly.dev/auth-signin-google"
+                "https://artstore-iyld.vercel.app/auth-signin-google"
         },
         "users" : ["sydney052007@gmail.com"]
     },
     "supplier": {
         "openauth": {
             "redirectionUrl":
-                "https://rentorbuy.fly.dev/supplier-signin-google"
+                "https://artstore-iyld.vercel.app/supplier-signin-google"
         }
     }
 }
