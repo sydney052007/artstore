@@ -1,0 +1,12 @@
+<td>
+    <form hx-post="/api/supplier_orders/ship" hx-target="#content">
+        <input type="hidden" name="id" value="{{id}}">
+        {{#if shipped}}
+            <input type="hidden" name="shipped" value="false">
+            <button class="banger_btn" style="background-color: #D3A537; color: #3B424B">Mark Unshipped</button>
+        {{else }}
+            <input type="hidden" name="shipped" value="true">
+            <button class="danger_btn">Ship Order</button>
+        {{/if }}
+    </form>
+</td>

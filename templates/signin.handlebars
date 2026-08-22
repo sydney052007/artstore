@@ -1,0 +1,28 @@
+<h1 class="logo_font_primary text-center" style="font-weight: bold;">Signin</h1>
+<form method="post" action="/signin">
+    <div class="container text-center">
+        <div class="row flex-row align-items-center">
+            <div class="form-group">
+                <label class="tag_content" style="font-size: 1.5vw;" for="email">Email:</label>
+                <input type="email" name="email" class="form-control input_col" required>
+            </div>
+            <div class="form-group">
+                <label class="tag_content" style="font-size: 1.5vw;" for="password">Password:</label>
+                <input type="password" name="password" class="form-control input_col" required>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="d-flex justify-content-center" >
+                <a class="tag accent2_primary" href="/signin/google" style="font-size: 2vw;">
+                    <i class="bi bi-google"></i>
+                    Use Google Account
+                </a>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div style="margin-top:3vw">
+                <button type="submit" class="cart_btn p-2" style="margin-left: 2vw;">Signin</button>
+            </div>
+        </div>
+    </div>
+</form>

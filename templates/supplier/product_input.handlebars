@@ -1,0 +1,6 @@
+<div class="mb-2 form-group">
+    <label class="card_title">{{label}}</label>
+    <input {{ supplier_disabled label }} name="{{name}}" class="input_col"
+        value="{{ data.value }}" />
+    {{> supplier/validation_messages data}}
+</div>

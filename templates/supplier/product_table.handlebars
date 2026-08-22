@@ -1,0 +1,22 @@
+{{> supplier/area_buttons mode="supplier_products"}}
+
+<table style="width: 98%;">
+    <thead>
+        <tr class="table_title">
+            <th>ID</th><th>Name</th><th>Photo</th>
+            <th>Category</th><th>Supplier</th>
+            <th>Available</th><th>Sale</th><th class="text-end">Rent</th>
+            <th></th><th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products }}
+            {{> supplier/product_row }}
+        {{/each }}
+    </tbody>
+</table>
+
+<button class="cart_btn" style="margin-top: 1vw;" hx-get="/api/supplier_products/create"
+    hx-target="#content">
+    Create
+</button>

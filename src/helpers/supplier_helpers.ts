@@ -1,0 +1,1 @@
+export const supplier_disabled = (val: any) => (val == "Supplier" || val == "ID") ? "readonly" : "";

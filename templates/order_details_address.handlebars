@@ -1,0 +1,15 @@
+<div class="m-2">
+    <h1 class="card_title" style="font-size: 2vw;">Ship to:</h1>
+    {{#each (toArray "Street" "City" "Zip") }}
+        {{#with (getValue ../order.address this) }}
+            <div class="form-group">
+                <label class="tag_content" style="font-size: 1.5vw;">{{ ../this }}</label>
+                <input name="address[{{lower ../this}}]" class="form-control input_col"
+                    value="{{value}}">
+            </div>
+            {{#unless valid}}
+                {{> validation_messages message }}
+            {{/unless}}
+        {{/with}}
+    {{/each}}
+</div>

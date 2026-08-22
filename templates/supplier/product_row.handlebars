@@ -1,0 +1,35 @@
+<tr id="row{{ id }}">
+    <td>{{ id }}</td>
+    <td>{{ name }}</td>
+    <td><a hx-get="/api/supplier_products/photo_edit/{{id}}" hx-target="#content"
+        hx-push-url="/supplier/supplier_products/photo_edit/{{id}}">
+    <i class="bi bi-file-earmark-image button" style="font-size: 2vw;"></i></a></td>
+    <td>{{ category.name }}</td>
+    <td>{{ supplier.name }}</td>
+    {{#if available}}
+        <td>YES</td>
+    {{else }}
+        <td>NO</td>
+    {{/if}}
+    {{#if sale}}
+        <td>{{ currency sale_price }}</td>
+    {{else }}
+        <td>Unavailable</td>
+    {{/if}}
+    {{#if rent}}
+        <td class="text-end">{{ currency rent_price }}</td>
+    {{else }}
+        <td class="text-end">Unavailable</td>
+    {{/if}}
+    <td class="ps-3">
+        <button class="danger_btn" style="background-color: #D3A537; color: #3B424B"
+        hx-get="/api/supplier_products/edit/{{id}}" hx-target="#content"
+        hx-push-url="/supplier/supplier_products/edit/{{id}}">
+            Edit
+        </button>
+        <button class="danger_btn"
+        hx-delete="/api/supplier_products/{{id}}" hx-target="#row{{id}}" hx-swap="delete">
+            Delete
+        </button>
+    </td>
+</tr>

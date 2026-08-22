@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src = "/bundle.js" defer></script>
+        <link href="/style.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="/font/bootstrap-icons.min.css" rel="stylesheet"/>
+        {{#if (isDevelopment)}}
+            <script src="/admin/bundle.js"></script>
+        {{/if}}
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row py-2 px-1">
+                <div class="col align-baseline pt-1 text-center">
+                <div class="logo_font_secondary d-inline" >if(</div>
+                <div class="logo_font_primary d-inline"> RENT</div>
+                <div class="logo_font_secondary d-inline">|</div>
+                <div class="logo_font_primary d-inline"> BUY</div>
+                <div class="logo_font_secondary d-inline">)</div>
+                <div class="logo_font_primary d-inline">ADMIN</div> </div>
+            </div>
+            <div class="row p-2">
+                <div class="col"></div>
+                <div class="col-auto">
+                    <a class="tag accent2_primary" href="/admin/google" style="font-size: 2vw;padding:1vw">
+                        <i class="bi bi-google"></i>
+                        Sign in with Google Account
+                    </a>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </body>
+</html>

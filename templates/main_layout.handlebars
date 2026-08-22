@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src = "/bundle.js" defer></script>
+        <link href="/style.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="/font/bootstrap-icons.min.css" rel="stylesheet"/>
+        <link href="/dist/flatpickr.min.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="py-2 px-1">
+            <div class="content-fluid">
+                <div class="row">
+                    <div class="col-auto">
+                        <a class="btn btn-sm navbar-btn" href="/">
+                            <i class="bi bi-house-fill secondary_color button" style="font-size: 4vw;"></i>
+                        </a> 
+                    </div>
+                    <div class="col align-baseline pt-1 text-center" style="margin-right: 0vw;">
+                        <a href="/home" style="text-decoration: none;">
+                        <div class="logo_font_secondary d-inline">if(</div>
+                        <div class="logo_font_primary d-inline"> RENT</div>
+                        <div class="logo_font_secondary d-inline">|</div>
+                        <div class="logo_font_primary d-inline"> BUY</div>
+                        <div class="logo_font_secondary d-inline">)</div>
+                        </a>
+                        </div>
+                    <div class="col-auto text-end secondary_color" style="margin-top: 0.8vw;">
+                        {{#if show_cart}}
+                            {{> cart_summary}}
+                        {{/if}}
+                        <a class="btn btn-sm navbar-btn "
+                            href="/signup">
+                            <i class="bi bi-person-bounding-box secondary_color button" style="font-size: 4vw;"></i>
+                        </a> 
+                    </div>
+                </div>
+            </div>
+        </div> 
+        {{{ body }}}
+    </body>
+</html>

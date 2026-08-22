@@ -1,0 +1,74 @@
+<div class="row-cols-2 row-cols-md-2 mt-5">
+    <div class="col float-start p-3">
+        <img src="pics/colorpencil/{{data.category_name}}/{{product.photo_URL}}" class="card-img-top shadow-sm p-1">
+    </div>
+    <div class="col float-end p-3">
+        <div class="row">
+            <h1 class="card_title mt-3" style="font-size: 4vw;">{{ highlight product.name }}</h1>
+            <h3 class="content mt-2 ml-1 lh-lg">{{product.description}}</h3>
+            <h3 class="tag_content mt-2 ml-1 lh-lg"><em>Artist : {{data.artist}}</em></h3>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row-cols-2 row-cols-md-2 mt-5">
+            <div class="col float-start p-2">
+                {{#if product.rent}}
+                <span class="tag primary_secondary float-start" style=" clear:both;font-size:2vw">
+                    <small>rent {{ currency product.rent_price }}/m</small>
+                </span>
+                {{else}}
+                <span class="tag unactive float-start" style="clear:both;font-size:2vw">
+                    <small>Unavailable</small>
+                </span>       
+                {{/if}}
+                <form method="post" action="/cart">
+                    <input type="hidden" name="returnUrl" value="{{data.returnUrl}}">
+                    <input type="hidden" name="productId" value="{{product.id}}">
+                    <input type="hidden" name="price" value="rent_price">
+                    <input type="hidden" name="type" value="rent">
+                    <input type="hidden" name="supplierId" value="{{product.supplierId}}">
+                    <div class="flatpickr">
+                        <input type="text" name="rent_date" class="float-start form-control input_col rent_date"
+                        data-rent_date="{{product.rent_date}}" data-ID="{{product.id}}" 
+                        id="rent_date{{product.id}}" style="clear: both;margin-top:0.5vw;width:70%" placeholder="start day" required>
+                    </div>
+                    <button type="submit" class="cart_btn mt-2" 
+                    {{#unless (notor product.rent data.available) }} disabled {{/unless}} style="clear:both;">
+                        Add to cart(rent)
+                    </button>
+                </form>
+            </div>
+
+            <div class="col float-end p-2">
+                {{#if product.sale}}
+                <span class="tag primary_secondary float-start" style="margin-top:1vw; clear:both;font-size:2vw">
+                    <small>sale {{ currency product.sale_price }}</small>
+                </span>
+                {{else}}
+                <span class="tag unactive float-start" style="margin-top:1vw; clear:both;font-size:2vw">
+                    <small>Unavailable</small>
+                </span>       
+                {{/if}}
+                <form method="post" action="/cart">
+                    <input type="hidden" name="returnUrl" value="{{data.returnUrl}}">
+                    <input type="hidden" name="productId" value="{{product.id}}">
+                    <input type="hidden" name="price" value="sale_price">
+                    <input type="hidden" name="type" value="sale">
+                    <input type="hidden" name="rent_date" value="">
+                    <input type="hidden" name="supplierId" value="{{product.supplierId}}">
+                    <button type="submit" class="cart_btn" 
+                    {{#unless (notor product.sale data.available) }} disabled {{/unless}} style=" clear:both;margin-top:0.5vw">
+                        Add to cart(buy)
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="float-end">
+        <a class="button ms-3"  href="{{ data.returnUrl }}">
+            <i class="bi bi-chevron-double-left"></i>Back
+        </a>
+    </div>
+</div>

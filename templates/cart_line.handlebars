@@ -1,0 +1,20 @@
+<tr>
+    <td class="text-end">{{ quantity }}</td>
+    <td class="text-left">{{ product.name }}</td>
+    <td class="text-end">{{ type }}
+        {{#if rent_date}}<small><em>{{rent_date}} ~ {{getMinDate rent_date 30}}</em></small>{{/if}}
+    </td>
+    <td class="text-end">{{ currency price }}</td>
+    <td class="text-end">{{ currency subtotal }}</td>
+    <td class="text-center">
+        <form method="post" action="/cart/remove">
+            <input type="hidden" name="id" value="{{ product.id }}">
+            <input type="hidden" name="type" value="{{ type }}">
+            <input type="hidden" name="rent_date" value="{{ rent_date }}">
+            <input type="hidden" name="returnUrl" value="{{ returnUrl }}">
+            <button type="submit" class="danger_btn">
+                Remove
+            </button>
+        </form>
+    </td>
+</tr>

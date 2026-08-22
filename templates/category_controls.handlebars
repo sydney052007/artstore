@@ -1,0 +1,14 @@
+<div class="d-grid gap-2" style="margin-top: 3vw;">
+    <a class="button " href="{{navigationUrl category="" page=1 searchTerm="" }}">
+        ALL
+    </a>
+    {{#categoryButtons }}
+        {{#if selected}}
+            <a class="p-2 lists select rounded-0">{{ name }}</a>
+        {{else }}
+            <a class="p-2 lists rounded-0 " href="{{navigationUrl category=id page=1}}">
+                {{ name }}
+            </a>
+        {{/if }}
+    {{/categoryButtons }}
+</div>

@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 g-0" style="width: 17vw;font-size:1.6vw">
+            {{> category_controls}}
+        </div>
+        <div class="col">
+            <div class="row">
+                {{> search_controls}}
+                {{#unless products}}<h4 class="card_title" style="color: #901541;">No products</h4>{{/unless }}
+            </div>
+            
+            <div class="row row-cols-1 row-cols-md-2 g-3 mt-1">
+                {{#each products }}
+                    {{> product this }}
+                {{/each }}
+            </div>
+            
+            {{> page_controls }}
+        </div>
+    </div>
+</div>

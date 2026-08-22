@@ -1,0 +1,20 @@
+<td>
+    <form hx-post="/api/orders/ship" hx-target="#content">
+        <input type="hidden" name="id" value="{{id}}">
+        {{#if shipped}}
+            <input type="hidden" name="shipped" value="false">
+            <button class="banger_btn" style="background-color: #D3A537; color: #3B424B">Mark Unshipped</button>
+        {{else }}
+            <input type="hidden" name="shipped" value="true">
+            <button class="danger_btn">Ship Order</button>
+        {{/if }}
+    </form>
+</td>
+<td>
+    <form hx-delete="/api/orders/{{id}}" hx-target="#row{{id}}" hx-swap="delete">
+        <input type="hidden" name="rent_date" value="{{rent_date}}">
+        <input type="hidden" name="productid" value="{{product.id}}">
+        <button class="danger_btn" >Delete</button>
+    </form>
+     
+</td>

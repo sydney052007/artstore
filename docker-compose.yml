@@ -1,0 +1,26 @@
+volumes:
+  databases: {}
+
+services:
+
+  postgres:
+    image: "postgres:16.2"
+    volumes:
+      - databases:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=MySecret$
+  
+  artstore:
+    image: "artstore"
+    depends_on:
+      - postgres
+    #ports:
+      #- 5000:5000
+    deploy: 
+      replicas: 5
+
+  proxy:
+    image: "ss-proxy"
+    ports:
+      - 80:80
+      - 443:443

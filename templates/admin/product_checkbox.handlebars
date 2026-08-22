@@ -1,0 +1,19 @@
+<div class="mb-2 form-group " style="border-bottom: 0;">
+    <label class="card_title">{{ label }}</label>
+    {{#if data.value }}
+    <div class="input_col" style="border-bottom: 0;">
+        <input type="radio" id="available" name="{{name}}" value=1 checked>
+        <label for="{{name}}" >Available</label>
+        <input type="radio" id="unavailable" name="{{name}}" value=0>
+        <label for="{{name}}">Unavailable</label>
+    </div>
+    {{else}}
+    <div class="input_col" style="border-bottom: 0;">
+        <input type="radio" id="available" name="{{name}}" value=1>
+        <label for="{{name}}"  >Available</label>
+        <input type="radio" id="unavailable" name="{{name}}" value=0  checked>
+        <label for="{{name}}">Unavailable</label>
+    </div>
+    {{/if}}
+    {{> admin/validation_messages data}}
+</div>

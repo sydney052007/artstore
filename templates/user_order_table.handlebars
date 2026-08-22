@@ -1,0 +1,35 @@
+<h1 class="card_title" style="font-size: 3vw;text-align: center">your orders</h1>
+<table>
+        {{#unless orders}}
+        <tr><td colspan="7" class="text-center logo_font_primary" style="font-weight: normal;font-size:3vw">No Orders</td></tr>
+        {{/unless}}
+        {{#each orders}}
+        <tbody style="margin-top: 2vw;" id="row{{id}}">
+            <tr class="table_title">
+                <th>Product</th><th>Quantity</th><th>Type</th>
+                <th>Price</th><th>State</th>
+            </tr>
+            {{#each selections}}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ quantity }}</td>
+                <td>{{ type }}<p class="h6 text-secondary"><small><em>
+                    {{#if rent_date}}
+                        {{ rent_date }}~{{ endDate rent_date 30 }}
+                    {{/if}}</em></small></p>
+                </td>
+                <td>{{ currency price }}</td>
+                <td>{{#if shipped}}shipped{{else}}unshipped{{/if}}</td>
+            </tr>
+            {{/each}}
+            <tr>
+                <th colspan="5" class="text-center">Total:{{ currency (total selections) }}</th>
+            </tr>
+        </tbody>
+        {{/each}}
+
+</table>
+<div class="row text-center" style="margin-top: 4vw;">
+     <a href="/signup" class="button"> <i class="bi bi-chevron-double-left" ></i>back</a>
+</div>
+

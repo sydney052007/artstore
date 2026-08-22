@@ -1,0 +1,62 @@
+{
+    "http": {
+        "port": 5000,
+        "content_security": {
+            "contentSecurityPolicy": {
+                "directives": {
+                    "upgradeInsecureRequests": null
+                }
+            }
+        }
+    },
+    "templates": {
+        "location": "templates",
+        "config": {
+            "layoutsDir": "templates",
+            "defaultLayout": "main_layout.handlebars",
+            "partialsDir": "templates"
+        }
+    },
+    "errors": {
+        "400": "not_found",
+        "500": "error"
+    },
+    "catalog": {
+        "orm_repo": {
+            "settings": {
+                "dialect": "sqlite",
+                "storage": "catalog.db"
+            },
+            "logging": true,
+            "rest_db": false,
+            "seed_file": "products.json"
+        }
+    },
+    "sessions": {
+        "maxAgeHrs": 2,
+        "rest_db": false,
+        "orm": {
+            "settings": {
+                "dialect": "sqlite",
+                "storage": "sessions.db"
+            },
+            "logging": true
+        }
+    },
+    "auth": {
+        "openauth": {
+            "redirectionUrl": "http://localhost:5000/signin-google"
+        }
+    },
+    "admin": {
+        "openauth": {
+            "redirectionUrl": "http://localhost:5000/auth-signin-google"
+        },
+        "users" : ["sydney052007@gmail.com"]
+    },
+    "supplier": {
+        "openauth": {
+            "redirectionUrl": "http://localhost:5000/supplier-signin-google"
+        }
+    }
+}

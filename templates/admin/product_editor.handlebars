@@ -1,0 +1,34 @@
+{{> admin/area_buttons mode="products"}}
+<div class="row align-items-center justify-content-center">
+    {{#if create}}
+    <form hx-post="/api/products/create" >
+    {{else}}
+    <form hx-put="/api/products/{{data.product.id.value}}" >
+    {{/if}}
+        {{> admin/product_input label="ID" name="id" data=data.product.id }}
+        {{> admin/product_input label="Name" name="name" data=data.product.name }}
+        {{> admin/product_checkbox label="Available" name="available" data=data.product.available }}
+        <div class="mb-2 form-group">
+            <label  class="card_title">Description</label>
+            <textarea name="description" class="input_col">
+                {{ data.product.description.value }}
+            </textarea>
+            {{> admin/validation_messages data.product.description }}
+        </div>
+        {{> admin/product_select label="Category" name="categoryId"
+            data=data.product.categoryId list=data.categories}}
+        {{> admin/product_select label="Supplier" name="supplierId"
+            data=data.product.supplierId list=data.suppliers}}
+        {{> admin/product_checkbox label="Sale" name="sale" data=data.product.sale}}
+        {{> admin/product_input label="Sale_Price" name="sale_price" data=data.product.sale_price }}
+        {{> admin/product_checkbox label="Rent" name="rent" data=data.product.rent}}
+        {{> admin/product_input label="Rent_Price" name="rent_price" data=data.product.rent_price }}
+
+        <div class="form-group" style="flex-direction: row;">
+            <button type="submit" class="cart_btn" style="margin-right: 5vw;">Save</button>
+            <button class="button" tyle="margin-left: 5vw;"
+                hx-get="/api/products/table" hx-target="#content">Cancel</button>
+        </div>
+    </form>
+</div>
+

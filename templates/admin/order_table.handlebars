@@ -1,0 +1,47 @@
+{{> admin/area_buttons mode="orders"}}
+
+<table style="width: 98% !important;" >
+    <thead><tr><th colspan="7" class="text-center logo_font_primary" style="font-weight: normal;font-size:3vw">Orders</th></tr></thead>
+
+        {{#unless orders}}
+            <tr><td colspan="7" class="text-center logo_font_primary" style="font-weight: normal;font-size:3vw">No Orders</td></tr>
+        {{/unless}}
+        {{#each orders}}
+        <tbody id="row{{id}}">
+            <tr class="table_title" >
+                <th>#</th><th>Customer</th><th>ZIP</th><th>Product</th>
+                <th>Quantity</th><th>Type</th><th>Price</th><th></th><th></th>
+            </tr>
+            {{#each selections}}
+            <tr>
+                {{#if (first @index)}}
+                    <td>{{ ../id}}</td>
+                    <td>{{ ../customer.name }}</td>
+                    <td>{{ ../address.zip }}</td>
+                {{else}}
+                    <th colspan="3"></th>
+                {{/if}}
+                <td>{{ product.name }}</td>
+                <td>{{ quantity }}</td>
+                <td>{{ type }}<p class="text-secondary" style="font-size: 1.5vw;"><small><em>
+                    {{#if rent_date}}
+                        {{ rent_date }}~{{ endDate rent_date 30 }}
+                    {{/if}}</em></small></p>
+                </td>
+                <td>{{ currency price }}</td>
+                {{#if (first @index)}}
+                    {{> admin/order_button id=../id shipped=../shipped}}
+                {{else}}
+                    <td></td><td></td>
+                {{/if}}
+            </tr>
+            {{/each}}
+            <tr >
+                <th colspan="5" class="text-end">Total:</th>
+                <td>{{ currency (total selections) }}</td>
+                <td></td><td></td><td></td>
+            </tr>
+        </tbody>
+        {{/each}}
+
+</table>

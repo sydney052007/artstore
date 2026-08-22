@@ -1,0 +1,12 @@
+<swap_wrapper hx-swap-oob="innerHTML:#area_buttons">
+    <div class="d-grid gap-2" style="font-size:1.6vw">
+        <button id="products_btn" class="p-2 lists rounded-0 {{ buttonClass "supplier_products" mode }}"
+        hx-get="/api/supplier_products/table" hx-target="#content" hx-push-url="/supplier/supplier_products"> 
+            Products
+        </button>
+        <button id="orders_btn" class="p-2 lists rounded-0 {{ buttonClass "supplier_orders" mode }}"
+        hx-get="/api/supplier_orders/table" hx-target="#content" hx-push-url="/supplier/supplier_orders">
+            Orders 
+        </button>
+    </div>
+</swap_wrapper>

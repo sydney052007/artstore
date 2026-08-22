@@ -1,0 +1,10 @@
+<div class="mb-2 form-group">
+    <label class="card_title">{{ label }}</label>
+    <select {{ supplier_disabled label }} name="{{name}}" class="input_col" >
+        <option value="" disabled selected>Choose {{label}}</option>
+        {{#each list}}
+            <option {{ selected id ../data.value }} value="{{id}}" >{{ name }}</option>
+        {{/each}}
+    </select>
+    {{> supplier/validation_messages data}}
+</div>

@@ -1,0 +1,15 @@
+node_modules/
+dist/
+
+# secrets — real values live only in the environment / local untracked files
+*.env
+production.server.config.json
+
+# local runtime state
+*.db
+
+.DS_Store
+
+# local self-signed TLS material for HAProxy dev testing (unused now Vercel handles TLS)
+cert.pem
+key.pem

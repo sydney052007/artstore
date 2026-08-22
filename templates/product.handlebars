@@ -1,0 +1,50 @@
+<div class="card border-0  m-1 p-1" style="width: 25vw;">
+    <div class="bg-faded p-1 card-body">
+        <img src="pics/colorpencil/{{category.name}}/{{photo_URL}}" class="card-img-top shadow-sm p-1">
+        <div class="row card-body row-cols-2 row-cols-md-2">
+             <div class="col float-start card_dec" style="margin-top: 2vw;">
+                <h5 class="card_title">{{  name }}</h5>
+                <span class="tag
+                {{#if available}} accent2_primary {{else}} unactive {{/if}}" style="font-size:1.3vw" >
+                    <small>
+                        {{#if available}}
+                            able
+                        {{else}}
+                            Unaable
+                        {{/if}}
+                    </small>
+                </span>
+            </div> 
+        <div class="col float-end">
+            {{#if rent}}
+            <span class="tag accent_secondary float-end" style=" clear:both;font-size:1.3vw">
+                <small>rent <br>{{ currency rent_price }}/m</small>
+            </span>
+            {{else}}
+            <span class="tag unactive float-end" style="clear:both;font-size:1.3vw">
+                <small>Unable</small>
+            </span>       
+            {{/if}}
+
+            {{#if sale}}
+            <span class="tag accent_secondary float-end" style="margin-top:1vw; clear:both;font-size:1.3vw">
+                <small>sale {{ currency sale_price }}</small>
+            </span>
+            {{else}}
+            <span class="tag unactive float-end" style="margin-top:1vw; clear:both;font-size:1.3vw">
+                <small>Unable</small>
+            </span>       
+            {{/if}}
+                
+            <form method="post" action="/more">
+                <input type="hidden" name="returnUrl" value="{{navigationUrl}}">
+                <input type="hidden" name="productId" value="{{id}}">
+                <input type="hidden" name="available" value="{{available}}">
+                <input type="hidden" name="artist" value="{{supplier.name}}">
+                <input type="hidden" name="category_name" value="{{category.name}}">
+                <button type="submit" class="btn more_btn position-absolute bottom-0 end-0 p-4" style="color: #9E7E99;font-size:1.3vw" >more</button>
+            </form>
+        </div>
+    </div>
+    </div>
+</div>

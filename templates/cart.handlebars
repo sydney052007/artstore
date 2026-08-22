@@ -1,0 +1,33 @@
+<h2 class="logo_font_primary text-center" style="font-size: 3vw;">Your cart</h2>
+<table class="mt-2" style="width: 100%;">
+    <thead  >
+        <tr class="table_title">
+            <th class="text-end">Quantity</th><th>Item</th>
+            <th class="text-end">Type</th><th class="text-end">Price</th>
+            <th class="text-end">Subtotal</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#unless cart.lines }}
+            <tr><td colspan="5" class="text-center">Cart is empty</td></tr>
+        {{/unless }}
+        {{#each cart.lines }}
+            {{> cart_line returnUrl=../returnUrl}}
+        {{/each}}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-end">Total</td>
+            <td class="test-end">{{ currency cart.total }}</td>
+        </tr>
+    </tfoot>
+</table>
+<div class="text-center mt-4" >
+    <a class="cart_btn p-2"  href="{{ returnUrl }}">Continue Shopping</a>
+    {{#if cart.lines }}
+        <a class="cart_btn p-2"  href="/checkout">Checkout</a>
+    {{else }}
+        <button class="tag unactive p-2"  disabled>Checkout</button>
+    {{/if }}
+</div>

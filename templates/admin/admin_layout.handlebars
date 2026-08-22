@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src = "/bundle.js" defer></script>
+        <link href="/style.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="/font/bootstrap-icons.min.css" rel="stylesheet"/>
+        {{#if (isDevelopment)}}
+            <script src="/admin/bundle.js"></script>
+        {{/if}}
+        <script src="/htmx.min.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row py-2 px-1">
+                
+               <div class="col align-baseline pt-1 text-center" style="margin-left: 7vw">
+                <a href="/home" style="text-decoration: none;">
+                <div class="logo_font_secondary d-inline" >if(</div>
+                <div class="logo_font_primary d-inline"> RENT</div>
+                <div class="logo_font_secondary d-inline">|</div>
+                <div class="logo_font_primary d-inline"> BUY</div>
+                <div class="logo_font_secondary d-inline">)</div>
+                <div class="logo_font_primary d-inline">ADMIN</div> </div></a>
+                <div class="col-auto text-end">
+                    {{#if user }}
+                    <div class="secondary_color text-end" style="margin-top: 0.5vw;">
+                        <small class="navbar-text" style="font-size: 1.6vw;">({{user.name}})</small>
+                        <button class="btn btn-sm navbar-btn "
+                            hx-post="/admin/signout" hx-target="body" hx-push-url="admin/signin">
+                            <i class="bi bi-box-arrow-right button" style="font-size: 4vw;"></i>    
+                        </button>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-2 g-0 pe-4" id="admin_area_buttons"></div>
+                <div class="col g-0 mt-3 align-items-center justify-content-center"id="content" hx-get="{{content}}"
+                hx-trigger="load"></div>
+            </div>
+        </div>
+    </body>
+</html>

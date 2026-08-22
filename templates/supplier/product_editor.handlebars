@@ -1,0 +1,38 @@
+{{> supplier/area_buttons mode="products"}}
+<div class="row ">
+    <div class="justify-content-center align-items-center">
+
+        {{#if create}}
+        <form hx-post="/api/supplier_products/create" >
+            {{> supplier/product_input label="ID" name="id" data=data.product.id }}
+            {{> supplier/product_input_data label="Supplier" name="supplierId" data=data.suppliers.id }}
+        {{else}}
+        <form hx-put="/api/supplier_products/{{data.product.id.value}}">
+            {{> supplier/product_input label="ID" name="id" data=data.product.id }}
+            {{> supplier/product_input label="Supplier" name="supplierId" data=data.product.supplierId }}
+        {{/if}}
+            {{> supplier/product_input label="Name" name="name" data=data.product.name }}
+            {{> supplier/product_checkbox label="Available" name="available" data=data.product.available  }}
+            <div class="mb-2 form-group">
+                <label class="card_title" >Description</label>
+                <textarea name="description"  class="input_col">
+                    {{ data.product.description.value }}
+                </textarea>
+                {{> supplier/validation_messages data.product.description }}
+            </div>
+            {{> supplier/product_select label="Category" name="categoryId"
+                data=data.product.categoryId list=data.categories}}
+            
+            {{> supplier/product_checkbox label="Sale" name="sale" data=data.product.sale}}
+            {{> supplier/product_input label="Sale_Price" name="sale_price" data=data.product.sale_price }}
+            {{> supplier/product_checkbox label="Rent" name="rent" data=data.product.rent}}
+            {{> supplier/product_input label="Rent_Price" name="rent_price" data=data.product.rent_price }}
+            <div class="form-group" style="flex-direction: row;">
+                <button type="submit" class="cart_btn" style="margin-right: 5vw;">Save</button>
+                <button class="button"
+                    hx-get="/api/supplier_products/table" style="margin-left: 5vw;" hx-target="#content">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+

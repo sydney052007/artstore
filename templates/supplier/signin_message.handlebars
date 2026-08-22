@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src = "/bundle.js" defer></script>
+        <link href="/style.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="/font/bootstrap-icons.min.css" rel="stylesheet"/>
+        {{#if (isDevelopment)}}
+            <script src="/admin/bundle.js"></script>
+        {{/if}}
+    </head>
+    <body>
+        <h1 class="logo_font_primary text-center" style="font-weight: bold;">Signin {{message}}</h1>
+        <div class="text-center" style="margin-top: 4vw">
+            <a href="/supplier" class="button" >back to supplier dashboard</a>
+        </div>
+    </body>
+</html>

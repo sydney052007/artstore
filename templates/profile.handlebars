@@ -1,0 +1,36 @@
+<div class="row text-center" style="margin-top: 3vw;">
+    <div class="col-3" style="margin-left: 3vw;">
+        <div class="row align-items-center">
+            <img src="{{user.avatar}}" class="img" >
+        </div>
+        <div class="row align-items-center" >
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <div class="form-group avatar">
+                    <label for="avatar" class="file">select your photo</label>
+                    <input type="file" name="avatar" id="avatar" >
+                    <span id="file-name" class="file-name tag" style="margin-top: 1.5vw;">No file selected</span>
+                    <button type="submit" class="button" style="margin-top: 3vw;">upload</button>
+                </div>
+                
+            </form>
+        </div>
+        
+    </div>
+    <div class="col-8" style="margin-top: 3vw;">
+        <h1 class="card_title" style="font-size: 2.5vw;">Name:</h1>
+        <p class="tag_content" style="font-size: 1.5vw;"><em>{{user.name}}</em></p>
+
+        <h1 class="card_title" style="font-size: 2.5vw;margin-top: 2vw">Email:</h1>
+        <p class="tag_content" style="font-size:1.5vw;"><em>{{user.email}}</em></p>
+        <div class="line">
+            <a href="/edit_profile" class="tag primary_secondary" style="font-size:1.5vw;margin-right:2vw">Edit your profile</a>
+            <a href="/signout" class="button" style="margin-top: 3vw;margin-left:2vw">signout</a>
+        </div>
+        <div class="row text-center" style="margin-top: 4vw;">
+            <a href="/order_profile" class="button " style="font-size: 2vw;">
+            my order<i class="bi bi-arrow-right-circle" style="margin-left: 3vw;margin-top:0.2vw"></i></a>
+        </div>
+        
+   </div>
+</div>
+
