@@ -1,7 +1,7 @@
 <div class="m-2">
-    <h1 class="card_title" style="font-size: 2vw;">Your account:</h1>
+    <h1 class="card_title" style="font-size: clamp(15.84px, 2vw, 37.44px);">Your account:</h1>
     <div class="form-group">
-        <label class="tag_content" style="font-size: 1.5vw;">Name:</label>
+        <label class="tag_content" style="font-size: clamp(13px, 1.5vw, 28.08px);">Name:</label>
         {{#with (get order.customer.name) }}
             <input name="customer[name]" id="name" class="form-control input_col" value="{{ value }}">
             {{#if invalid }}
@@ -10,7 +10,7 @@
         {{/with}}
     </div>
     <div class="form-group">
-        <label class="tag_content" style="font-size: 1.5vw;">Email:</label>
+        <label class="tag_content" style="font-size: clamp(13px, 1.5vw, 28.08px);">Email:</label>
         {{#with (get order.customer.email)}}
             <input name="customer[email]" id="email" class="form-control input_col" value="{{ value }}">
             {{#if invalid}}

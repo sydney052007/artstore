@@ -1,5 +1,5 @@
 <swap_wrapper hx-swap-oob="innerHTML:#area_buttons">
-    <div class="d-grid gap-2" style="font-size:1.6vw">
+    <div class="d-grid gap-2" style="font-size: clamp(13px, 1.6vw, 29.95px)">
         <button id="products_btn" class="p-2 lists rounded-0 {{ buttonClass "supplier_products" mode }}"
         hx-get="/api/supplier_products/table" hx-target="#content" hx-push-url="/supplier/supplier_products"> 
             Products

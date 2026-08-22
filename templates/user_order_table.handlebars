@@ -1,10 +1,10 @@
-<h1 class="card_title" style="font-size: 3vw;text-align: center">your orders</h1>
+<h1 class="card_title" style="font-size: clamp(23.76px, 3vw, 56.16px);text-align: center">your orders</h1>
 <table>
         {{#unless orders}}
-        <tr><td colspan="7" class="text-center logo_font_primary" style="font-weight: normal;font-size:3vw">No Orders</td></tr>
+        <tr><td colspan="7" class="text-center logo_font_primary" style="font-weight: normal;font-size:clamp(23.76px, 3vw, 56.16px)">No Orders</td></tr>
         {{/unless}}
         {{#each orders}}
-        <tbody style="margin-top: 2vw;" id="row{{id}}">
+        <tbody style="margin-top: clamp(15.84px, 2vw, 37.44px);" id="row{{id}}">
             <tr class="table_title">
                 <th>Product</th><th>Quantity</th><th>Type</th>
                 <th>Price</th><th>State</th>
@@ -29,7 +29,7 @@
         {{/each}}
 
 </table>
-<div class="row text-center" style="margin-top: 4vw;">
+<div class="row text-center" style="margin-top: clamp(31.68px, 4vw, 74.88px);">
      <a href="/signup" class="button"> <i class="bi bi-chevron-double-left" ></i>back</a>
 </div>
 

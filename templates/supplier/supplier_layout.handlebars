@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src = "/bundle.js" defer></script>
-        <link href="/style.css" rel="stylesheet">
+        <script src = "/bundle.js?v={{assetVersion}}" defer></script>
+        <link href="/style.css?v={{assetVersion}}" rel="stylesheet">
         <link href="/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="/font/bootstrap-icons.min.css" rel="stylesheet"/>
         {{#if (isDevelopment)}}
@@ -13,7 +13,7 @@
     <body>
         <div class="container-fluid">
             <div class="row py-2 px-1">
-               <div class="col align-baseline pt-1 text-center" style="margin-left: 7vw">
+               <div class="col align-baseline pt-1 text-center" style="margin-left: clamp(55.44px, 7vw, 131.04px)">
                 <a href="/home" style="text-decoration: none;">
                 <div class="logo_font_secondary d-inline" >if(</div>
                 <div class="logo_font_primary d-inline"> RENT</div>
@@ -23,19 +23,19 @@
                 <div class="logo_font_primary d-inline">ARTIST</div> </div></a>
                 <div class="col-auto text-end">
                     {{#if user }}
-                    <div class="secondary_color text-end" style="margin-top: 0.5vw;">
-                        <small class="navbar-text" style="font-size: 1.6vw;">({{user.name}})</small>
+                    <div class="secondary_color text-end" style="margin-top: clamp(3.96px, 0.5vw, 9.36px);">
+                        <small class="navbar-text" style="font-size: clamp(13px, 1.6vw, 29.95px);">({{user.name}})</small>
                         <button class="btn btn-sm navbar-btn "
                             hx-post="/supplier/signout" hx-target="body" hx-push-url="supplier/signin">
-                            <i class="bi bi-box-arrow-right button" style="font-size: 4vw;"></i>    
+                            <i class="bi bi-box-arrow-right button" style="font-size: clamp(31.68px, 4vw, 74.88px);"></i>    
                         </button>
                     </div>
                     {{/if}}
                 </div>
             </div>
             <div class="row" >
-                <div class="col-2 g-0 pe-4" id="area_buttons"></div>
-                <div class="col g-0 mt-3 align-items-center justify-content-center"id="content" hx-get="{{content}}"
+                <div class="col-12 col-md-2 g-0 pe-4" id="area_buttons"></div>
+                <div class="col-12 col-md g-0 mt-3 align-items-center justify-content-center"id="content" hx-get="{{content}}"
                 hx-trigger="load"></div>
             </div>
         </div>

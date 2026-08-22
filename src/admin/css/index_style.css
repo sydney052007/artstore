@@ -8,35 +8,35 @@
 
 .chinese_content{
     font-family: 'Courier New',monospace;
-    font-size: 1.5vw;
-    letter-spacing: 0.6vw;
+    font-size: clamp(13px, 1.5vw, 28.08px);
+    letter-spacing: clamp(4.75px, 0.6vw, 11.23px);
     color: var(--accent-color);
 }
 
 .underline{
     display: inline-block;
-    padding-bottom: 10w;
+    padding-bottom: 3px;
     background-image: linear-gradient(to right , var(--primary-color), var(--secondary-color),transparent);
     background-position: bottom;
     background-repeat: no-repeat;
-    background-size: 100% 0.3vw;
+    background-size: 100% clamp(2.38px, 0.3vw, 5.62px);
 }
 
 .logo_font_primary{
-    font-family: 'Courier New', 'Copperplate';
-    font-size: 5vw;
+    font-family: 'Courier New', 'Copperplate', monospace;
+    font-size: clamp(39.6px, 5vw, 93.6px);
     color: var(--primary-color);  
 }
 
 .logo_font_secondary{
-    font-family: 'Courier New', 'Copperplate';
-    font-size: 3vw;
+    font-family: 'Courier New', 'Copperplate', monospace;
+    font-size: clamp(23.76px, 3vw, 56.16px);
     color: var(--accent2-color);
 }
 
 .table_title{
-    font-family: 'Courier New', 'Copperplate';
-    font-size: 1.3vw;
+    font-family: 'Courier New', 'Copperplate', monospace;
+    font-size: clamp(13px, 1.3vw, 24.34px);
     color: var(--background-color);
     background-color: var(--secondary-color);
     text-align: center;
@@ -44,7 +44,7 @@
 
 th,td{
     width:auto;
-    padding: 0.5vw;
+    padding: clamp(3.96px, 0.5vw, 9.36px);
     text-align: center;
     font-weight: normal;
     vertical-align: middle;
@@ -53,7 +53,7 @@ th,td{
 tr{
 
     font-family: monospace;
-    font-size: 1.5vw;
+    font-size: clamp(13px, 1.5vw, 28.08px);
     font-weight: normal;
     text-align: center;
 }
@@ -67,23 +67,24 @@ table{
 tr:nth-child(even) {background-color: #e6dae9;}
 
 .card_title{
-    font-family: 'Courier New', 'Copperplate';
-    font-size: 1.5vw;
+    font-family: 'Courier New', 'Copperplate', monospace;
+    font-size: clamp(13px, 1.5vw, 28.08px);
     color: var(--accent-color);
 }
 
 .tag{
     font-family: monospace;
-    padding: 0.3vw;
-    padding-left: 0.8vw;
-    padding-right: 0.8vw;
+    padding: clamp(2.38px, 0.3vw, 5.62px);
+    padding-left: clamp(6.34px, 0.8vw, 14.98px);
+    padding-right: clamp(6.34px, 0.8vw, 14.98px);
     border-radius: 0.375rem;
-    font-size: 1vw;
+    font-size: clamp(13px, 1vw, 18.72px);
     border: 0;
     text-align: right;
-    letter-spacing: 0.1vw;
-    word-spacing: 0.05vw;
+    letter-spacing: clamp(0.79px, 0.1vw, 1.87px);
+    word-spacing: clamp(0.4px, 0.05vw, 0.94px);
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .primary_secondary{
@@ -115,11 +116,11 @@ tr:nth-child(even) {background-color: #e6dae9;}
 }
 
 .card_dec{
-    aspect-ratio: 1/1;
-    background-image: linear-gradient(135deg , 
+    min-height: clamp(70px, 12vw, 130px);
+    background-image: linear-gradient(135deg ,
     var(--primary-color),var(--primary-color),
      var(--background-color),white);
-    border-top-right-radius: 100%;
+    border-top-right-radius: 40px;
     border-bottom-left-radius: 5%;
 }
 
@@ -128,7 +129,7 @@ tr:nth-child(even) {background-color: #e6dae9;}
 }
 
 .lists{
-    font-family: 'Courier New', 'Copperplate';
+    font-family: 'Courier New', 'Copperplate', monospace;
     text-align: center;
     text-decoration: none;
     background-image: linear-gradient(to right , var(--primary-color), var(--secondary-color));
@@ -143,16 +144,16 @@ tr:nth-child(even) {background-color: #e6dae9;}
 }
 
 .content{
-    font-size: 2vw;
-    letter-spacing: 0.5vw;
-    word-spacing: 0.8vw;
+    font-size: clamp(15.84px, 2vw, 37.44px);
+    letter-spacing: clamp(3.96px, 0.5vw, 9.36px);
+    word-spacing: clamp(6.34px, 0.8vw, 14.98px);
     color: var(--accent-color);
 }
 
 .tag_content{
-    font-size: 1vw;
-    letter-spacing: 0.3vw;
-    word-spacing: 0.5vw;
+    font-size: clamp(13px, 1vw, 18.72px);
+    letter-spacing: clamp(2.38px, 0.3vw, 5.62px);
+    word-spacing: clamp(3.96px, 0.5vw, 9.36px);
     color: var(--accent-color);
 }
 
@@ -173,16 +174,16 @@ tr:nth-child(even) {background-color: #e6dae9;}
 
 
 .cart_btn{
-    font-family: 'Courier New', 'Copperplate';
+    font-family: 'Courier New', 'Copperplate', monospace;
     border: 0;
     text-decoration: none;
     background-image: linear-gradient(to right , var(--background-color), var(--accent2-color));
     color:var(--accent-color);
-    padding: 0.5vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding: clamp(3.96px, 0.5vw, 9.36px);
+    padding-left: clamp(7.92px, 1vw, 18.72px);
+    padding-right: clamp(7.92px, 1vw, 18.72px);
     border-radius: 0.375rem;
-    font-size: 1.5vw;
+    font-size: clamp(13px, 1.5vw, 28.08px);
 }
 
 .form-group {
@@ -191,27 +192,28 @@ tr:nth-child(even) {background-color: #e6dae9;}
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2vw;
+    padding: clamp(15.84px, 2vw, 37.44px);
 }
 
 .input_col{
-    font-family: 'Courier New', 'Copperplate';
-    font-size: 1.5vw;
-    margin-top: 2vw;
-    padding: 0.5vw;
+    font-family: 'Courier New', 'Copperplate', monospace;
+    font-size: clamp(13px, 1.5vw, 28.08px);
+    margin-top: clamp(15.84px, 2vw, 37.44px);
+    padding: clamp(3.96px, 0.5vw, 9.36px);
 
     text-align: center !important;
-    width: 60% !important;
+    width: 100% !important;
+    max-width: 400px;
     box-sizing: border-box;
     border-radius: 0 !important;
     border: none !important;
-    border-bottom: 0.2vw solid var(--secondary-color) !important;
+    border-bottom: clamp(1.58px, 0.2vw, 3.74px) solid var(--secondary-color) !important;
 }
 
 .input_select{
-    font-family: 'Courier New', 'Copperplate';
-    font-size: 1.5vw;
-    padding: 0.5vw;
+    font-family: 'Courier New', 'Copperplate', monospace;
+    font-size: clamp(13px, 1.5vw, 28.08px);
+    padding: clamp(3.96px, 0.5vw, 9.36px);
 
     text-align: center !important;
     box-sizing: border-box;
@@ -219,22 +221,21 @@ tr:nth-child(even) {background-color: #e6dae9;}
 }
 
 .danger_btn{
-    font-family: 'Courier New', 'Copperplate';
+    font-family: 'Courier New', 'Copperplate', monospace;
     border: 0;
     background-color: #901541;
     color:var(--background-color);
-    padding: 0.3vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding: clamp(2.38px, 0.3vw, 5.62px);
+    padding-left: clamp(7.92px, 1vw, 18.72px);
+    padding-right: clamp(7.92px, 1vw, 18.72px);
     border-radius: 0.375rem;
-    font-size: 1.5vw;
-    font-weight: bold;
+    font-size: clamp(13px, 1.5vw, 28.08px);
 }
 
 .img{
     width: 100%;
     border-radius: 50%;
-    padding: 2vw;
+    padding: clamp(15.84px, 2vw, 37.44px);
 }
 
 input[type="file"]{
@@ -244,10 +245,10 @@ input[type="file"]{
 .file{
     font-family:  monospace;
     align-items: center !important;
-    padding: 0.3vw;
-    padding-left: 0.8vw;
-    padding-right: 0.8vw;
-    font-size: 1.5vw;
+    padding: clamp(2.38px, 0.3vw, 5.62px);
+    padding-left: clamp(6.34px, 0.8vw, 14.98px);
+    padding-right: clamp(6.34px, 0.8vw, 14.98px);
+    font-size: clamp(13px, 1.5vw, 28.08px);
     border: 0;
     border-radius: 0.375rem;
     text-align: center !important;
@@ -257,27 +258,51 @@ input[type="file"]{
 
 .line{
     position: relative;
-    padding-bottom: 4vw;
+    padding-bottom: clamp(31.68px, 4vw, 74.88px);
 }
 
 .line::after{
     content: '';
     position: absolute;
-    bottom: -2vw;
+    bottom: clamp(-37.44px, -2vw, -15.84px);
     left: 50%; 
     transform: translateX(-50%);
-    height: 0.15vw;
+    height: clamp(1.19px, 0.15vw, 2.81px);
     background-color: var(--secondary-color);
     width: 50%;
 }
 
 .home_btn{
-    font-size: 2.5vw;
-    padding:1vw;
+    font-size: clamp(19.8px, 2.5vw, 46.8px);
+    padding:clamp(7.92px, 1vw, 18.72px);
     transition: opacity 0.3s ease-in-out;
 }
 
 
 html,body {
-    font-family: 'Courier New', 'Copperplate';
+    font-family: 'Courier New', 'Copperplate', monospace;
+}
+
+/* Body text stays a consistent, non-bold weight; headings are left at their native weight */
+.content, .chinese_content, .tag_content, .tag, tr,
+.button, .lists, .cart_btn, .danger_btn, .file, .home_btn, .more_btn {
+    font-weight: 400;
+}
+
+body {
+    overflow-x: hidden;
+    padding-bottom: clamp(32px, 5vw, 80px);
+}
+
+.card-clickable {
+    cursor: pointer;
+}
+.card-clickable .more_btn {
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, .card_title, .content,
+.tag_content, .chinese_content, .tag {
+    overflow-wrap: break-word;
+    word-break: break-word;
 }

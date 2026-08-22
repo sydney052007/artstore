@@ -1,10 +1,10 @@
 {{#if cart.lines}}
-    <small class="navbar-text" style="font-size: 1.6vw;">{{ countCartItems cart }} item(s)</small>
+    <small class="navbar-text" style="font-size: clamp(13px, 1.6vw, 29.95px);">{{ countCartItems cart }} item(s)</small>
 {{else}}
-    <small class="navbar-text" style="font-size: 1.6vw;">(Empty)</small>
+    <small class="navbar-text" style="font-size: clamp(13px, 1.6vw, 29.95px);">(Empty)</small>
 {{/if}}
 
 <a class="btn btn-sm navbar-btn "
     href="/cart?returnUrl={{ escapeUrl ( navigationUrl ) }}">
-    <i class="bi-basket secondary_color button" style="font-size: 4vw;"></i>
+    <i class="bi-basket secondary_color button" style="font-size: clamp(31.68px, 4vw, 74.88px);"></i>
 </a> 

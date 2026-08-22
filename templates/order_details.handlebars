@@ -1,10 +1,10 @@
 <form method="post" action="/checkout">
     <div class="container">
         <div class="row flex-row align-items-center">
-            <div class="col-7">{{> order_details_customer }}</div>
-            <div class="col">
+            <div class="col-12 col-md-7">{{> order_details_customer }}</div>
+            <div class="col-12 col-md">
                 <div class="d-flex justify-content-center">
-                    <a class="tag accent2_primary" href="/checkout/google" style="font-size: 2vw;">
+                    <a class="tag accent2_primary" href="/checkout/google" style="font-size: clamp(15.84px, 2vw, 37.44px);">
                         <i class="bi bi-google"></i>
                         Use Google Account
                     </a>
@@ -19,7 +19,7 @@
                 <a href="/cart?returnUrl={{ escapeUrl ( navigationUrl )}}" class="button p-2 ">
                     <i class="bi bi-chevron-double-left"></i>Back
                 </a>
-                <button type="submit" class="cart_btn p-2" style="margin-left: 2vw;">Place Order</button>
+                <button type="submit" class="cart_btn p-2" style="margin-left: clamp(15.84px, 2vw, 37.44px);">Place Order</button>
             </div>
         </div>
     </div>

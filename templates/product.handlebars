@@ -1,48 +1,48 @@
-<div class="card border-0  m-1 p-1" style="width: 25vw;">
+<div class="card border-0 p-1 card-clickable" style="max-width: 468px;">
     <div class="bg-faded p-1 card-body">
         <img src="pics/colorpencil/{{category.name}}/{{photo_URL}}" class="card-img-top shadow-sm p-1">
-        <div class="row card-body row-cols-2 row-cols-md-2">
-             <div class="col float-start card_dec" style="margin-top: 2vw;">
+        <div class="row card-body row-cols-1 row-cols-sm-2">
+             <div class="col float-start card_dec" style="margin-top: clamp(15.84px, 2vw, 37.44px);">
                 <h5 class="card_title">{{  name }}</h5>
                 <span class="tag
-                {{#if available}} accent2_primary {{else}} unactive {{/if}}" style="font-size:1.3vw" >
+                {{#if available}} accent2_primary {{else}} unactive {{/if}}" style="font-size: clamp(13px, 1.3vw, 24.34px)" >
                     <small>
                         {{#if available}}
-                            able
+                            Available
                         {{else}}
-                            Unaable
+                            Unavailable
                         {{/if}}
                     </small>
                 </span>
             </div> 
         <div class="col float-end">
             {{#if rent}}
-            <span class="tag accent_secondary float-end" style=" clear:both;font-size:1.3vw">
-                <small>rent <br>{{ currency rent_price }}/m</small>
+            <span class="tag accent_secondary float-end" style=" clear:both;font-size: clamp(13px, 1.3vw, 24.34px)">
+                <small>rent {{ currency rent_price }}/m</small>
             </span>
             {{else}}
-            <span class="tag unactive float-end" style="clear:both;font-size:1.3vw">
-                <small>Unable</small>
+            <span class="tag unactive float-end" style="clear:both;font-size: clamp(13px, 1.3vw, 24.34px)">
+                <small>Unavailable</small>
             </span>       
             {{/if}}
 
             {{#if sale}}
-            <span class="tag accent_secondary float-end" style="margin-top:1vw; clear:both;font-size:1.3vw">
+            <span class="tag accent_secondary float-end" style="margin-top:clamp(7.92px, 1vw, 18.72px); clear:both;font-size: clamp(13px, 1.3vw, 24.34px)">
                 <small>sale {{ currency sale_price }}</small>
             </span>
             {{else}}
-            <span class="tag unactive float-end" style="margin-top:1vw; clear:both;font-size:1.3vw">
-                <small>Unable</small>
+            <span class="tag unactive float-end" style="margin-top:clamp(7.92px, 1vw, 18.72px); clear:both;font-size: clamp(13px, 1.3vw, 24.34px)">
+                <small>Unavailable</small>
             </span>       
             {{/if}}
                 
-            <form method="post" action="/more">
+            <form method="post" action="/more" class="clearfix">
                 <input type="hidden" name="returnUrl" value="{{navigationUrl}}">
                 <input type="hidden" name="productId" value="{{id}}">
                 <input type="hidden" name="available" value="{{available}}">
                 <input type="hidden" name="artist" value="{{supplier.name}}">
                 <input type="hidden" name="category_name" value="{{category.name}}">
-                <button type="submit" class="btn more_btn position-absolute bottom-0 end-0 p-4" style="color: #9E7E99;font-size:1.3vw" >more</button>
+                <button type="submit" class="btn more_btn float-end mt-2" style="color: #9E7E99;font-size: clamp(13px, 1.3vw, 24.34px)" >more</button>
             </form>
         </div>
     </div>

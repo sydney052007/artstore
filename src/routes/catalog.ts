@@ -17,7 +17,7 @@ export const createCatalogRoutes = (app: Express) => {
         //console.log(products);
         resp.render("index", {...res, page, pageSize,
             products,pageCount: Math.ceil(res.totalCount / (pageSize ?? 1)),
-            searchTerm, category, show_cart: true});
+            searchTerm, category, show_cart: true, show_categories: true});
     });
 
     app.post("/more", async(req, resp) => {

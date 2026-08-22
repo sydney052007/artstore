@@ -1,5 +1,6 @@
-<div class="row text-center" style="margin-top: 3vw;">
-    <div class="col-3" style="margin-left: 3vw;">
+<div class="container">
+<div class="row text-center" style="margin-top: clamp(23.76px, 3vw, 56.16px);">
+    <div class="col-12 col-sm-3" style="margin-left: clamp(23.76px, 3vw, 56.16px);">
         <div class="row align-items-center">
             <img src="{{user.avatar}}" class="img" >
         </div>
@@ -8,29 +9,30 @@
                 <div class="form-group avatar">
                     <label for="avatar" class="file">select your photo</label>
                     <input type="file" name="avatar" id="avatar" >
-                    <span id="file-name" class="file-name tag" style="margin-top: 1.5vw;">No file selected</span>
-                    <button type="submit" class="button" style="margin-top: 3vw;">upload</button>
+                    <span id="file-name" class="file-name tag" style="margin-top: clamp(11.88px, 1.5vw, 28.08px);">No file selected</span>
+                    <button type="submit" class="button" style="margin-top: clamp(23.76px, 3vw, 56.16px);">upload</button>
                 </div>
                 
             </form>
         </div>
         
     </div>
-    <div class="col-8" style="margin-top: 3vw;">
-        <h1 class="card_title" style="font-size: 2.5vw;">Name:</h1>
-        <p class="tag_content" style="font-size: 1.5vw;"><em>{{user.name}}</em></p>
+    <div class="col-12 col-sm-8" style="margin-top: clamp(23.76px, 3vw, 56.16px);">
+        <h1 class="card_title" style="font-size: clamp(19.8px, 2.5vw, 46.8px);">Name:</h1>
+        <p class="tag_content" style="font-size: clamp(13px, 1.5vw, 28.08px);"><em>{{user.name}}</em></p>
 
-        <h1 class="card_title" style="font-size: 2.5vw;margin-top: 2vw">Email:</h1>
-        <p class="tag_content" style="font-size:1.5vw;"><em>{{user.email}}</em></p>
+        <h1 class="card_title" style="font-size: clamp(19.8px, 2.5vw, 46.8px);margin-top: clamp(15.84px, 2vw, 37.44px)">Email:</h1>
+        <p class="tag_content" style="font-size: clamp(13px, 1.5vw, 28.08px);"><em>{{user.email}}</em></p>
         <div class="line">
-            <a href="/edit_profile" class="tag primary_secondary" style="font-size:1.5vw;margin-right:2vw">Edit your profile</a>
-            <a href="/signout" class="button" style="margin-top: 3vw;margin-left:2vw">signout</a>
+            <a href="/edit_profile" class="tag primary_secondary" style="font-size: clamp(13px, 1.5vw, 28.08px);margin-right:clamp(15.84px, 2vw, 37.44px)">Edit your profile</a>
+            <a href="/signout" class="button" style="margin-top: clamp(23.76px, 3vw, 56.16px);margin-left:clamp(15.84px, 2vw, 37.44px)">signout</a>
         </div>
-        <div class="row text-center" style="margin-top: 4vw;">
-            <a href="/order_profile" class="button " style="font-size: 2vw;">
-            my order<i class="bi bi-arrow-right-circle" style="margin-left: 3vw;margin-top:0.2vw"></i></a>
+        <div class="row text-center" style="margin-top: clamp(31.68px, 4vw, 74.88px);">
+            <a href="/order_profile" class="button " style="font-size: clamp(15.84px, 2vw, 37.44px);">
+            my order<i class="bi bi-arrow-right-circle" style="margin-left: clamp(23.76px, 3vw, 56.16px);margin-top:clamp(1.58px, 0.2vw, 3.74px)"></i></a>
         </div>
-        
+
    </div>
+</div>
 </div>
 

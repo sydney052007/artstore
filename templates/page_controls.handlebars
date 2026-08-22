@@ -3,7 +3,7 @@
         <div class="col">
             {{#pageButtons }}
                 {{#if selected}}
-                    <button class="tag primary_secondary mr-1 p-2" style="font-size: 1.5vw;">
+                    <button class="tag primary_secondary mr-1 p-2" style="font-size: clamp(13px, 1.5vw, 28.08px);">
                         {{index}}
                     </button>
                 {{else}}
@@ -13,7 +13,7 @@
             {{/pageButtons }}
         </div>
         <div class="col-auto text-end" >
-            <form id="pageSizeForm" method="get" style="font-size:2vw">
+            <form id="pageSizeForm" method="get" style="font-size:clamp(15.84px, 2vw, 37.44px)">
                 <select class="input_select" name="pageSize">
                     {{#pageSizeOptions }}
                         <option vlaue="{{size}}" {{selected}}>
@@ -24,7 +24,7 @@
             </form>
         </div>
         <div class="col-auto p-1">
-            <button class="tag primary_secondary mr-2" style="font-size:1.5vw"  type="submit" form="pageSizeForm">Go</button>
+            <button class="tag primary_secondary mr-2" style="font-size: clamp(13px, 1.5vw, 28.08px)"  type="submit" form="pageSizeForm">Go</button>
         </div>
     </div>
 </div>

@@ -1,10 +1,10 @@
 {{> supplier/area_buttons mode="supplier_orders"}}
 
 <table style="width: 98% !important;" >
-    <thead><tr><th colspan="7" class="text-center logo_font_primary" style="font-weight: normal;font-size:3vw">Orders</th></tr></thead>
+    <thead><tr><th colspan="7" class="text-center logo_font_primary" style="font-weight: normal;font-size:clamp(23.76px, 3vw, 56.16px)">Orders</th></tr></thead>
 
         {{#unless orders}}
-            <tr><td colspan="7" class="text-center logo_font_primary" style="font-weight: normal;font-size:3vw">No Orders</td></tr>
+            <tr><td colspan="7" class="text-center logo_font_primary" style="font-weight: normal;font-size:clamp(23.76px, 3vw, 56.16px)">No Orders</td></tr>
         {{/unless}}
         {{#each orders}}
         <tbody id="row{{id}}">
@@ -23,7 +23,7 @@
                 {{/if}}
                 <td>{{ product.name }}</td>
                 <td>{{ quantity }}</td>
-                <td>{{ type }}<p class="text-secondary" style="font-size: 1.5vw;"><small><em>
+                <td>{{ type }}<p class="text-secondary" style="font-size: clamp(13px, 1.5vw, 28.08px);"><small><em>
                     {{#if rent_date}}
                         {{ rent_date }}~{{ endDate rent_date 30 }}
                     {{/if}}</em></small></p>

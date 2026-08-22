@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src = "/bundle.js" defer></script>
-        <link href="/style.css" rel="stylesheet">
+        <script src = "/bundle.js?v={{assetVersion}}" defer></script>
+        <link href="/style.css?v={{assetVersion}}" rel="stylesheet">
         <link href="/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="/font/bootstrap-icons.min.css" rel="stylesheet"/>
         {{#if (isDevelopment)}}
@@ -11,7 +11,7 @@
     </head>
     <body>
         <h1 class="logo_font_primary text-center" style="font-weight: bold;">Signin {{message}}</h1>
-        <div class="text-center" style="margin-top: 4vw">
+        <div class="text-center" style="margin-top: clamp(31.68px, 4vw, 74.88px)">
             <a href="/supplier" class="button" >back to supplier dashboard</a>
         </div>
     </body>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src = "/bundle.js" defer></script>
-        <link href="/style.css" rel="stylesheet">
+        <script src = "/bundle.js?v={{assetVersion}}" defer></script>
+        <link href="/style.css?v={{assetVersion}}" rel="stylesheet">
         <link href="/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="/font/bootstrap-icons.min.css" rel="stylesheet"/>
         {{#if (isDevelopment)}}
@@ -23,7 +23,7 @@
             <div class="row p-2">
                 <div class="col"></div>
                 <div class="col-auto">
-                    <a class="tag accent2_primary" href="/admin/google" style="font-size: 2vw;padding:1vw">
+                    <a class="tag accent2_primary" href="/admin/google" style="font-size: clamp(15.84px, 2vw, 37.44px);padding:clamp(7.92px, 1vw, 18.72px)">
                         <i class="bi bi-google"></i>
                         Sign in with Google Account
                     </a>

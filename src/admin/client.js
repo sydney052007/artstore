@@ -43,6 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }) 
     })
 
+    document.querySelectorAll('.card-clickable').forEach(card => {
+        card.addEventListener('click', function(event) {
+            if (event.target.closest('a, button, input, .more_btn')) return;
+            const form = card.querySelector('form[action="/more"]');
+            if (form) form.requestSubmit();
+        });
+    });
+
     if (document.querySelector(".avatar")) {
         console.log("avatar");
         document.getElementById("avatar").addEventListener("change", function() {

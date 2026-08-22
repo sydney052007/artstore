@@ -1,15 +1,24 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2 g-0" style="width: 17vw;font-size:1.6vw">
-            {{> category_controls}}
+        <div class="offcanvas-md offcanvas-start col-md-2 g-0" tabindex="-1" id="categorySidebar"
+            aria-labelledby="categorySidebarLabel" style="font-size: clamp(13px, 1.6vw, 29.95px); --bs-offcanvas-width: min(78vw, 320px);">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title card_title" id="categorySidebarLabel">Categories</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#categorySidebar" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                {{> category_controls}}
+            </div>
         </div>
         <div class="col">
             <div class="row">
-                {{> search_controls}}
-                {{#unless products}}<h4 class="card_title" style="color: #901541;">No products</h4>{{/unless }}
+                <div class="col">
+                    {{> search_controls}}
+                    {{#unless products}}<h4 class="card_title" style="color: #901541;">No products</h4>{{/unless }}
+                </div>
             </div>
             
-            <div class="row row-cols-1 row-cols-md-2 g-3 mt-1">
+            <div class="row row-cols-2 row-cols-md-3 g-2 g-md-3 mt-1">
                 {{#each products }}
                     {{> product this }}
                 {{/each }}
