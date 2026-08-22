@@ -7,7 +7,6 @@ import { createTemplates } from "./helpers";
 import { createErrorHandlers } from "./error";
 import { createSessions } from "./session";
 import { createAuthentication } from "./authentication";
-import httpProxy from "http-proxy";
 import { engine } from "express-handlebars";
 import { uploadDir } from "./routes/user_helpers";
 import path from "path";
@@ -57,35 +56,6 @@ createRoutes(expressApp);
 const server = createServer(expressApp);
 
 console.log("Current environment:", getEnvironment(),Env.Development);
-if(getEnvironment() === Env.Development) {
-    const proxy = httpProxy.createProxyServer({
-        target: "http://localhost:5100", ws:true
-    });
-    proxy.on('error', (err, req, resp) => {
-        console.error("Proxy error (is `npm run client` / webpack-dev-server running on :5100?):", err.message);
-        if (resp && 'writeHead' in resp && !resp.headersSent) {
-            resp.writeHead(502, { "Content-Type": "text/plain" });
-            resp.end("Admin/supplier dev server is not running. Start it with `npm run client`.");
-        }
-    });
-    expressApp.use("/supplier", (req,resp) => proxy.web(req, resp));
-    expressApp.use("/admin", (req,resp) => proxy.web(req, resp));
-    server.on('upgrade', (req, socket, head) => proxy.ws(req, socket, head));
-}else{
-    const proxy = httpProxy.createProxyServer({
-        target: "https://rentorbuy-db.internal", ws:true
-    });
-    proxy.on('error', (err, req, resp) => {
-        console.error("Proxy error:", err.message);
-        if (resp && 'writeHead' in resp && !resp.headersSent) {
-            resp.writeHead(502, { "Content-Type": "text/plain" });
-            resp.end("Bad gateway");
-        }
-    });
-    expressApp.use("/supplier", (req,resp) => proxy.web(req, resp));
-    expressApp.use("/admin", (req,resp) => proxy.web(req, resp));
-    server.on('upgrade', (req, socket, head) => proxy.ws(req, socket, head));
-}
 
 createErrorHandlers(expressApp);
 
