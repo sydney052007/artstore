@@ -136,6 +136,12 @@ export const createAuthentication = (app: Express) => {
                         if(supplier){
                             const {id, name, email,avatar, federatedId} = supplier;
                             callbackFunc(null, { id, name, email,avatar, federatedId});
+                        } else {
+                            // Session points at a customer/supplier that no
+                            // longer exists (e.g. after a database reset) —
+                            // treat this request as logged out instead of
+                            // leaving the callback (and the request) hanging.
+                            callbackFunc(null, false);
                         }
                     })
                 }
@@ -143,5 +149,23 @@ export const createAuthentication = (app: Express) => {
         }
     })
 
-    app.use(passport.session()); 
+    app.use(passport.session());
+
+    // If the session cookie still names a user but deserialization just
+    // rejected it (stale/invalid session), fully log the request out:
+    // destroy the session server-side and clear the cookie, rather than
+    // silently leaving a half-authenticated req.session around.
+    app.use((req, res, next) => {
+        const sessionData = req.session as unknown as { passport?: { user?: unknown } };
+        if (sessionData?.passport?.user && !req.user) {
+            req.logout(() => {
+                req.session.destroy(() => {
+                    res.clearCookie("connect.sid");
+                    next();
+                });
+            });
+        } else {
+            next();
+        }
+    });
 }
