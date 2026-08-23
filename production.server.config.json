@@ -5,9 +5,11 @@
             "contentSecurityPolicy": {
                 "directives": {
                     "upgradeInsecureRequests": null,
-                    "imgSrc": ["'self'", "data:", "https:"]
+                    "imgSrc": ["'self'", "data:", "https:"],
+                    "frameAncestors": ["'self'", "https://sydney-portfolio-iota.vercel.app"]
                 }
-            }
+            },
+            "frameguard": false
         }
     },
     "templates": {
